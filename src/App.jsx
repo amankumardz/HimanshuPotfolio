@@ -98,7 +98,7 @@ function App() {
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={socialLinks.email} className="rounded-xl bg-brand-500 px-5 py-3 font-medium text-white shadow-glow transition hover:opacity-90">Hire Me</a>
-            <a href="/HimanshuPotfolio/resume.pdf" download className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3 font-medium hover:border-brand-400 hover:text-brand-400">
+            <a href="/resume.pdf" download className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3 font-medium hover:border-brand-400 hover:text-brand-400">
               <Download size={16} /> Download Resume
             </a>
           </div>
