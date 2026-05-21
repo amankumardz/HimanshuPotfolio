@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import {
+  ArrowRight,
   Briefcase,
   Download,
   Github,
@@ -9,6 +10,8 @@ import {
   MapPin,
   Phone
 } from 'lucide-react'
+import profileImage from '../assets/HimanshuProfile.jpg'
+import resumePdf from '../assets/Himanshu Kumar - Resume.pdf'
 
 const socialLinks = {
   linkedin: 'https://linkedin.com/in/himanshu-kumar-009bbb1a8',
@@ -16,6 +19,8 @@ const socialLinks = {
   email: 'mailto:himanshuk526@gmail.com',
   phone: 'tel:+919097722868'
 }
+
+const techBadges = ['Node.js', 'React', 'MongoDB', 'AWS', 'Microservices']
 
 const skills = [
   'JavaScript', 'Node.js', 'NestJS', 'Express.js', 'LoopBack 4', 'React.js', 'MongoDB', 'MySQL', 'Redis',
@@ -79,33 +84,67 @@ const projects = [
 ]
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
 }
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 px-4 py-10 text-slate-100 md:px-8">
+    <div className="min-h-screen bg-slate-950 px-4 py-10 text-slate-100 md:px-8">
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-8">
-        <motion.section variants={fadeUp} initial="hidden" animate="show" className="section-card">
-          <p className="mb-2 text-sm text-brand-400">Available for freelance work</p>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">Himanshu Kumar</h1>
-          <p className="mt-3 text-lg text-slate-300">Senior Software Developer | Backend & Node.js Specialist</p>
-          <div className="mt-4 flex flex-wrap items-center gap-4 text-slate-400">
-            <span className="flex items-center gap-2"><MapPin size={16} /> Noida, India</span>
-            <a href={socialLinks.phone} className="flex items-center gap-2 hover:text-brand-400"><Phone size={16} /> +91-9097722868</a>
-            <a href={socialLinks.email} className="flex items-center gap-2 hover:text-brand-400"><Mail size={16} /> himanshuk526@gmail.com</a>
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 p-6 shadow-2xl md:p-10"
+        >
+          <div className="pointer-events-none absolute inset-0 opacity-40">
+            <div className="absolute -top-16 left-10 h-48 w-48 animate-pulse rounded-full bg-brand-500/40 blur-3xl" />
+            <div className="absolute bottom-0 right-0 h-64 w-64 animate-pulse rounded-full bg-cyan-500/30 blur-3xl" />
           </div>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href={socialLinks.email} className="rounded-xl bg-brand-500 px-5 py-3 font-medium text-white shadow-glow transition hover:opacity-90">Hire Me</a>
-            <a href="/resume.pdf" download className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-5 py-3 font-medium hover:border-brand-400 hover:text-brand-400">
-              <Download size={16} /> Download Resume
-            </a>
-          </div>
-          <div className="mt-6 flex gap-4 text-slate-300">
-            <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="hover:text-brand-400"><Linkedin /></a>
-            <a href={socialLinks.github} target="_blank" rel="noreferrer" className="hover:text-brand-400"><Github /></a>
-            <a href={socialLinks.email} className="hover:text-brand-400"><Mail /></a>
+          <div className="relative grid items-center gap-8 lg:grid-cols-[1.3fr_1fr]">
+            <div>
+              <span className="inline-flex items-center rounded-full border border-emerald-300/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-300">
+                Available for Freelance
+              </span>
+              <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">Himanshu Kumar</h1>
+              <p className="mt-3 text-lg text-slate-300 md:text-xl">Senior Software Developer | Backend & Node.js Specialist</p>
+
+              <div className="mt-5 flex flex-wrap items-center gap-4 text-slate-300">
+                <span className="flex items-center gap-2"><MapPin size={16} /> Noida, India</span>
+                <a href={socialLinks.phone} className="flex items-center gap-2 hover:text-brand-400"><Phone size={16} /> +91-9097722868</a>
+                <a href={socialLinks.email} className="flex items-center gap-2 hover:text-brand-400"><Mail size={16} /> himanshuk526@gmail.com</a>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href={socialLinks.email} className="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-6 py-3 font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:opacity-95">
+                  Hire Me <ArrowRight size={16} />
+                </a>
+                <a href={resumePdf} download className="inline-flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-900/60 px-6 py-3 font-semibold hover:border-brand-400 hover:text-brand-300">
+                  <Download size={16} /> Download Resume
+                </a>
+              </div>
+
+              <div className="mt-6 flex gap-4 text-slate-200">
+                <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="hover:text-brand-400"><Linkedin /></a>
+                <a href={socialLinks.github} target="_blank" rel="noreferrer" className="hover:text-brand-400"><Github /></a>
+                <a href={socialLinks.email} className="hover:text-brand-400"><Mail /></a>
+              </div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-sm">
+              <img src={profileImage} alt="Himanshu Kumar profile" className="h-[360px] w-full rounded-3xl object-cover shadow-2xl ring-1 ring-white/10" />
+              {techBadges.map((badge, index) => (
+                <motion.span
+                  key={badge}
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3 + index * 0.2, repeat: Infinity, ease: 'easeInOut' }}
+                  className={`absolute rounded-full border border-slate-600 bg-slate-900/90 px-3 py-1 text-xs font-semibold text-slate-200 shadow-xl ${index === 0 ? '-left-4 top-6' : ''} ${index === 1 ? '-right-4 top-16' : ''} ${index === 2 ? 'left-0 bottom-16' : ''} ${index === 3 ? 'right-2 bottom-6' : ''} ${index === 4 ? 'left-1/3 -bottom-4' : ''}`}
+                >
+                  {badge}
+                </motion.span>
+              ))}
+            </div>
           </div>
         </motion.section>
 
@@ -133,7 +172,7 @@ function App() {
           <h2 className="mb-6 flex items-center gap-2 text-2xl font-semibold"><Briefcase size={22} /> Work Experience</h2>
           <div className="relative border-l border-slate-700 pl-6">
             {experience.map((item) => (
-              <div key={item.company} className="relative mb-8 last:mb-0">
+              <motion.div whileHover={{ x: 5 }} key={item.company} className="relative mb-8 last:mb-0">
                 <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-brand-400" />
                 <h3 className="text-lg font-semibold">{item.role}</h3>
                 <p className="text-slate-300">{item.company}</p>
@@ -141,7 +180,7 @@ function App() {
                 <ul className="list-disc space-y-1 pl-5 text-slate-300">
                   {item.achievements.map((achievement) => <li key={achievement}>{achievement}</li>)}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.section>
@@ -150,7 +189,7 @@ function App() {
           <h2 className="mb-6 text-2xl font-semibold">Projects</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {projects.map((project) => (
-              <article key={project.name} className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+              <motion.article whileHover={{ y: -6, scale: 1.01 }} key={project.name} className="rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-xl transition">
                 <h3 className="text-lg font-semibold">{project.name}</h3>
                 <p className="mt-2 text-slate-300">{project.impact}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -158,7 +197,7 @@ function App() {
                     <span key={tech} className="rounded-md bg-slate-800 px-2 py-1 text-xs text-brand-400">{tech}</span>
                   ))}
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </motion.section>
@@ -173,16 +212,10 @@ function App() {
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="section-card">
             <h2 className="mb-4 text-2xl font-semibold">Contact / Hire Me</h2>
-            <p className="text-slate-300">
-              Open to freelance opportunities in backend engineering, API development, microservices architecture,
-              and production system optimization.
-            </p>
-            <a href={socialLinks.email} className="mt-5 inline-block rounded-xl bg-brand-500 px-5 py-3 font-medium text-white hover:opacity-90">
-              Let&apos;s Work Together
-            </a>
+            <p className="text-slate-300">Open to freelance opportunities in backend engineering, API development, and microservices architecture.</p>
             <div className="mt-5 space-y-2 text-slate-300">
               <p><a className="hover:text-brand-400" href={socialLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></p>
-              <p><a className="hover:text-brand-400" href={socialLinks.github} target="_blank" rel="noreferrer">GitHub (update placeholder)</a></p>
+              <p><a className="hover:text-brand-400" href={socialLinks.github} target="_blank" rel="noreferrer">GitHub</a></p>
               <p><a className="hover:text-brand-400" href={socialLinks.email}>himanshuk526@gmail.com</a></p>
               <p><a className="hover:text-brand-400" href={socialLinks.phone}>+91-9097722868</a></p>
             </div>
